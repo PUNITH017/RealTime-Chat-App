@@ -44,6 +44,7 @@ body{
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ee9aa3;
+    display: none;
 }
 .form form .name-details{
    display: flex;
@@ -88,7 +89,7 @@ form .name-details .field:last-child{
     cursor: pointer;
     border-radius: 7px;
     width: 50%;
-    margin-left: 100px;
+    margin-left: 88px;
 }
 .form form .field i{
     position: absolute;
@@ -97,6 +98,10 @@ form .name-details .field:last-child{
     top: 60%;
     transform: translate(-50%);
     cursor: pointer;
+}
+.form form .field i.active::before{
+    color: #333;
+    content: "\f070";
 }
 .form .link {
     text-align: center;
@@ -168,18 +173,33 @@ form .name-details .field:last-child{
     position: absolute;
     border: 1px solid #ccc;
     padding: 0 13px;
-    font-size: 16px;
+    font-size: 17px;
     border-radius: 5px 0 0 5px;
     outline: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.7s ease;
+}
+.users .search input.active{
+    pointer-events: auto;
+    opacity: 1;
 }
 .users .search button{
     height: 41px;
     width: 47px;
     border: none;
     outline: none;
+    color: #333;
+    background-color: #DDDDDD;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.7s ease;
+}
+.users .search button.active{
     color: #fff;
     background-color: #333;
-    border-radius: 0 5px 5px 0;
+}
+.users .search button.active i::before{
+    content: "\f00d";
 }
 .user-list{
     max-height: 350px;
@@ -306,6 +326,7 @@ form .name-details .field:last-child{
     font-size: 17px;
     border: 1px solid #ccc;
     border-radius: 25px;
+    padding: 0 15px;
 }
 .typing-area input text{
     margin-left: 10px;
